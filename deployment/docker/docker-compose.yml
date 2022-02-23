@@ -30,6 +30,7 @@ services:
       DB_PORT: 5432
       DB_DATABASE: postgres
       DB_SCHEMA: public
+      SEND_ANONYMOUS_STATS: false
     links:
       - db
   monosi-client:
@@ -41,5 +42,6 @@ services:
       - monosi-server
     environment:
       - REACT_APP_API_URL=http://0.0.0.0:3000/v1/api/
+      - REACT_APP_IS_DEMO=true
     ports:
       - "3000:80"
